@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://kit.fontawesome.com/aa3ba33b99.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Markup and Styles for Type</title>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Markup for type</h1>
+
+        <section>
+          <h1>Inline elements and block elements</h1>
+          <p>
+            In normal body copy, text typically flows from one line to the next as we reach the edge of the visible page. We add words to a line, progressing horizontally from left to right, until we reach the end of the line and drop down to continue on the next line. In HTML, this is the default behavior for text without any markup. Many html elements are intended to flow with text in this way
+            without interruption. Elements that have this behavior are known as inline elements. Common inline elements include
+          </p>
+          <a href="">a</a>, <strong>strong</strong>, <em>em</em>, <b>b</b>, <i>i</i>, <sup>sup</sup>, <sub>sub</sub>, <button>button</button>, <code>code</code> and <span>span</span>.
+
+          <!-- Wrap each element named above in its corresponding tag. -->
+          <p></p>
+          HTML also has elements which do not follow the normal flow of text, but instead define the containers, or blocks, within which inline text flows. Most html documents are fairly complicated hierarchies of 'nested' elements - blocks ontaining blocks, etc. Common block elements include:</p>
+           <p>p</p> <h1>h1</h1> <h2>h2</h2> <h3>h3</h3> <h4>h4</h4> <h5>h5</h5> <h6>h6</h6> <article>article</article> <section>section</section> <nav>nav</nav> <aside>aside</aside> <header>header</header> <footer>footer</footer><div>div</div>
+
+          <!-- Wrap each element named in the line above with its corresponding tag. -->
+          <!-- For all other blocks in this section, wrap in a p tag. -->
+        </section>
+
+        <section>
+          <h1>Code comments</h1>
+
+          Sometimes, you want to put notes or comments into the code itself that are not visible to the end-user. These code comments can also be useful for temporarily 'removing' code from the page without actually deleting it, because code within a comment does not get parsed by the browser.
+          <!-- Hide this block of text by placing your cursor in it, then typing command-/, which (in VS Code) will add comment delimiters to the entire line. -->
+        </section>
+
+        <section>
+          <h1>Meta charset</h1>
+
+          <p>There are many different technical standards for how text data can be encoded. It's a good idea to tell the browser how the text in your document is encoded, so it can be interpreted correctly. The UTF-8 standard is widely-used, and encompasses a huge array of glyphs for a multitude of languages.</p>
+
+          <!-- Add <meta charset="UTF-8"> to the document <head>. -->
+        </section>
+
+        <section>
+          <h1>HTML entities</h1>
+
+          <p>
+            There are some characters that must be handled differently because they are used to create the markup itself. These characters must be 'escaped' in your code with short 'words' called <dfn>HTML Entities</dfn>. These 'words' all begin with an ampersand, and end with a semi-colon. Angle brackets (&lt; and &gt;) must be represented with html entities, since they are parsed to
+            create tags themselves.
+
+            <!-- Above, replace 'less-than' with &lt; and 'greater-then' with &gt;. -->
+
+            Another common entity is the ampersand itself, since all entities begin with one. You'll find there are actually entities for virtually every glyph, but as long as you're using UTF-8, you won't need most of them.
+          </p>
+        </section>
+      </article>
+
+      <article>
+        <h1>Styles for type</h1>
+
+        <!-- Attach an external stylesheet. -->
+
+        <section>
+          <h1>Format of a CSS ruleset</h1>
+
+          <p>A complete ruleset includes a selector followed by a colon, then a set of curly-braces containing one or more individual rules. Each rule is a <code>property: value</code> pair, ending with a semi-colon.</p>
+
+          <figure>
+            <pre>
+            selector {
+              property-name: value;
+              another-property-name: value;
+            }
+            </pre>
+          </figure>
+        </section>
+
+        <section>
+          <h1>Inheritance</h1>
+
+          <p>
+            Most CSS properties set on a container will be inherited by the decendants of that container.
+
+            <!-- Set color for the html element to: gray; -->
+
+            An element will accumulate inherited rules from ancestors. A rule on the element itself will take precedence over a rule inherited from a parent, which will itself take precedence over a rule inherited from an grandparent, and so-forth.
+          </p>
+
+          <!-- Set color for h1 elements to: black; -->
+
+          <p>We can see observe the full stack of inherited rules for a given element using the element inspector.</p>
+        </section>
+
+        <section>
+          <h1>CSS properties for styling type</h1>
+
+          <section>
+            <h1>font-family</h1>
+
+            <p>The number of font-faces you can safely assume will already be available on your user's computer is <a href="https://www.cssfontstack.com/">extremely limited</a>. The <dfn>font-family</dfn> is therefore used to indicate a prioritized list font-faces. The browser will use the first face if it is available, but if not, it will attempt to use the next, and so forth.</p>
+
+            <!-- Set font-family for the html element to: Arial, Helvetica, sans-serif; -->
+          </section>
+
+          <section>
+            <h1>font-size</h1>
+
+            <p>Use <dfn>font-size</dfn> to specify the size of type.</p>
+
+            <!-- Set font-size for the html element to: 15pt; -->
+
+            <p><em>font-size</em> can be specified in <dfn>absolute units</dfn> (pt, px) or <dfn>relative units</dfn> (rem, em, %). Absolute units operate like you're probably used to in print (e.g.: a pt is 1/72<sup>th</sup> of an inch). Relative units are calculated based on some other aspect of the page.</p>
+
+            <!-- Set font-size for p elements to: 13pt; -->
+
+            <p>A <dfn>rem</dfn> is a unit equal to the document's base font-size, as defined on the <code>html</code> element. An item sized with the rem unit will be consistently sized no matter where it is on the page.</p>
+
+            <!-- Set font-size for sup elements to 0.6rem. -->
+            <!-- See that the sup scales with html, not p. -->
+
+            <p>An <dfn>em</dfn> is a unit equal to the font-size of the parent element. It is best used on elements that should be sized in proportion to the type they are near.</p>
+
+            <!-- Set font-size for sup elements to 0.6em. -->
+            <!-- See that the sup now scales with p. -->
+
+            <p>Similar to <em>em</em>, font-size specified with the <dfn>%</dfn> unit will be sized as a percentage of the font-size of the parent element. Effectively, 1em = 100%.</p>
+
+            <!-- Set font-size for sup elements to 60%. -->
+            <!-- See that the sup still scales with p. -->
+          </section>
+
+          <section>
+            <h1>font-weight</h1>
+
+            <p><dfn>Font-weight</dfn> controls the boldness of the typeface. Typical values are <code>normal</code> or <code>bold</code>. <em>Font-weight</em> may also be specified as a number between <code>100</code> and <code>900</code>, where <code>100</code> is the lightest weight, and <code>900</code> is boldest. <code>400</code> is equivilent to <code>normal</code>.</p>
+
+            <!-- Set font-weight for dfn elements to: bold; -->
+          </section>
+
+          <section>
+            <h1>font-style</h1>
+
+            <p>Use <dfn>font-style</dfn> to control whether type is italicized.</p>
+            <p><small>Note: many elements are styled as italic by default.</small></p>
+
+            <!-- Set font-style for small elements to: italic; -->
+          </section>
+
+          <section>
+            <h1>line-height</h1>
+
+            <p><dfn>Line-height</dfn> controls the space between lines, known in traditional typography as <em>leading</em>. <em>Line-height</em> may be specified in the unit of your choice, but does not require one. A value of <code>1</code> is equal to the font-size of the type being styled. A typical value would be <code>1.2</code>.</p>
+
+            <!-- Set line-height for p elements to: 1.4; -->
+          </section>
+
+          <section>
+            <h1>letter-spacing</h1>
+
+            <p>Known as <em>tracking</em> in traditional typography, <dfn>letter-spacing</dfn> is the css property we use for controlling space between characters. This is an excellent use-case for the <em>em</em> unit. As with many properties, negative values are allowed!</p>
+
+            <!-- Set letter-spacing for h1 elements to: -0.02em; -->
+          </section>
+
+          <section>
+            <h1>text-align</h1>
+
+            <p>Use <dfn>text-align</dfn> to center the inline child elements within a container. This is a litter different than many of the styles we have discussed, in that it generally only makes sense when applied to a block-level element.</p>
+
+            <aside>
+              <q>Human sacrifice, dogs and cats living together... mass hysteria!</q>
+              <cite>Ghostbusters, 1984</cite>
+            </aside>
+
+            <!-- Set text-align: center; on aside elements. -->
+            <!-- Set text-align: right; on cite elements. -->
+            <!-- Set display: block; on cite elements. -->
+          </section>
+
+          <section>
+            <h1>margin</h1>
+
+            <p><dfn>Margin</dfn> is one of many properties we can use to control white-space around type. Details will come later, but for now we can use it to add some space around the edge of the page, as well as control space between other blocks like <code>article</code> and <code>section</code>.</p>
+
+            <!-- Set margin: 10%; on the body element. -->
+            <!-- Set margin: 6rem 0; on article elements. -->
+            <!-- Set margin: 2.5em 0; on section elements. -->
+          </section>
+
+          <section>
+            <h1>text-decoration</h1>
+
+            <p>
+              By default, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">anchor tags</a> are displayed with an underline. This underline is controlled by the <dfn>text-decoration</dfn> property.
+
+              <!-- Set text-decoration: none; on a elements. -->
+
+              Possible values include <code>none</code>, <code>underline</code>, <code>overline</code>, and <code>line-through</code>. You can also use the <dfn>text-decoration-style</dfn> property to set the line as <code>solid</code>, <code>wavy</code>, or <code>dashed</code>.
+            </p>
+          </section>
+
+          <section>
+            <h1>text-transform</h1>
+
+            <p>The <dfn>text-transform</dfn> property allows you to transform text to <code>uppercase</code>, <code>lowercase</code>, or <code>capitalize</code> (which capitalizes each letter).</p>
+
+            <!-- Set text-transform to: capitalize; for h1 elements. -->
+            <!-- set text-transform to: lowercase; for dfn elements. -->
+          </section>
+
+          <section>
+            <h1>text-indent</h1>
+
+            <p>You can indent the first line of a block of text using the <dfn>text-indent</dfn> property. You can also use this propery to 'outdent', by using a negative value.</p>
+
+            <!-- Set text-indent: -1rem; for h1 elements. -->
+          </section>
+
+          <section>
+            <h1>color</h1>
+
+            <p>While css allows you to set the color of almost anything one way or another, the actual <dfn>color</dfn> property is used specifically for the color of text. There are a number of ways to represent the specific color you want to use:</p>
+
+            <ul>
+              <li><code>color: gray;</code> CSS recognizes many <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">color names</a>.</li>
+
+              <li><code>color: #cc0000;</code> These codes are available in most color-pickers, including in VS Code, and in the browser inspector.</li>
+
+              <li><code>color: rgb(200, 0, 0);</code> Each number represents an RGB channel value (0-255).</li>
+
+              <li><code>color: rgba(200, 0, 0, 0.5);</code> First three numbers represent an RGB channel value (0-255), the final number (decimal 0-1) represents an opacity, where 0 is fully transparent, and 1 is fully opaque.</li>
+            </ul>
+
+            <!-- Set color for code elements to: steelblue; -->
+          </section>
+        </section>
+      </article>
+
+      <article>
+        <h1>Using web fonts</h1>
+
+        <p>You don't have to limit yourself to web-safe fonts. You can provide font resources with your website files, allowing the user's browser to download the required typeface(s). The easiest way to do this is with cloud-based a webfont provider, as discussed below.</p>
+
+        <section>
+          <h1>Google fonts</h1>
+
+          <p><a href="https://fonts.google.com">fonts.google.com</a> provides a free-to-use collection of web fonts. The quality of these typefaces does not always meet the standards of your typography professors, but they have the considerable advantages of being free, plentiful, and easy to use!</p>
+
+          <!-- Use the Google Fonts interface to find select the 400, 400 italic, 700, and 700 italic faces of Roboto Condensed. -->
+          <!-- Copy/paste the provided <link> tag into your html document head. -->
+          <!-- Copy/paste the provided font-family css rule into the html element in your stylesheet. -->
+        </section>
+
+        <section>
+          <h1>Typekit fonts (Adobe)</h1>
+
+          <p><a href="https://fonts.adobe.com">Adobe's Typekit</a> resource is available to Creative Cloud subscribers. Typefaces used through Typekit are licensed by virtual of your CC subscription. (Educational subscriptions may have limited access.) Typekit is not free, and is slightly more complicated to use, but has the benefit of providing higher-quality typefaces.</p>
+          <p><strong>skipping this because I am not a Com Des Major!</strong></p>
+          <!-- Use the Typekit interface to find and select the Vista-Slab typeface, and add it to a new web project. -->
+          <!-- Copy/paste the provided <link> tag into your html document head. -->
+          <!-- Copy/paste the provided font-family css rule into the h1 element of your stylesheet. -->
+        </section>
+
+        <section>
+          <h1>Font Awesome (Icon font)</h1>
+
+          <p><a href="https://fontawesome.com/"><i class="fa-solid fa-user"></i> Font Awesome</a> is an example of an icon font - a typeface whose glyphs, rather than being alphabet characters, are vector icon art. Icon fonts can be extremely useful when building controls for user interfaces.</p>
+
+          <!-- Use the Font Awesome interface to create a kit -->
+          <!-- Add the Font Awesome embed script to the head of the document. -->
+          <!-- Paste an icon just after the opening tag of the <a> above. -->
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
