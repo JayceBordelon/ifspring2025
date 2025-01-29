@@ -1,152 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Type Styling - Jayce Bordelon</title>
+    <title>Font Styling Exercise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <style>
-      body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        background-color: #f4f4f4;
-        color: #333;
-        max-width: 600px;
-        margin: 40px auto;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background: white;
-      }
-
-      h1 {
-        text-align: center;
+      html {
         font-size: 24px;
-        margin-bottom: 20px;
       }
-
-      .summary {
-        font-size: 16px;
-        margin-bottom: 20px;
-        padding: 10px;
-        background: #eaeaea;
-        border-left: 5px solid #555;
+      body {
+        font-family: 'Arial', sans-serif;
       }
-
-      .property-group {
-        margin-bottom: 20px;
-        padding: 10px;
-        background: #fff;
-        border-left: 4px solid #777;
+      section {
+        margin-bottom: 100px;
       }
-
-      .property-title {
-        font-size: 20pt;
-        font-weight: bold;
-        margin-bottom: 10px;
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.4em;
       }
-
-      .sample {
-        margin: 5px 0;
-        padding: 5px;
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.4em;
+        color: #bbb;
       }
-
-      .label {
-        font-weight: bold;
-        display: inline-block;
-        width: 130px;
+      h3 {
+        font-size: 0.6rem;
+        margin-bottom: 0.2em;
+        color: #999;
+        font-weight: 400;
       }
-
-      .weight-bold {
-        font-weight: bold;
+      p {
+        margin-top: 0;
       }
-      .weight-normal {
+      .styledFont {
+        font-family: 'Crimson Text', serif;
+      }
+      section.FontWeight p.Normal {
         font-weight: normal;
       }
-      .weight-light {
-        font-weight: lighter;
+      section.FontWeight p.Bold {
+        font-weight: bold;
       }
-
-      .style-italic {
-        font-style: italic;
-      }
-      .style-normal {
+      section.FontStyle p.Normal {
         font-style: normal;
       }
-      .style-oblique {
-        font-style: oblique;
+      section.FontStyle p.Italic {
+        font-style: italic;
       }
-
-      .spacing-wide {
-        letter-spacing: 3px;
-      }
-      .spacing-normal {
+      section.LetterSpacing p.Normal {
         letter-spacing: normal;
       }
-      .spacing-tight {
-        letter-spacing: -1px;
+      section.LetterSpacing p.Wide {
+        letter-spacing: 0.3em;
       }
-
-      .transform-uppercase {
-        text-transform: uppercase;
+      section.LetterSpacing p.Narrow {
+        letter-spacing: -0.06em;
       }
-      .transform-lowercase {
-        text-transform: lowercase;
+      section.TextDecoration p.None {
+        text-decoration: none;
       }
-      .transform-capitalize {
-        text-transform: capitalize;
-      }
-
-      .decoration-underline {
+      section.TextDecoration p.Underline {
         text-decoration: underline;
       }
-      .decoration-line-through {
+      section.TextDecoration p.LineThrough {
         text-decoration: line-through;
       }
-      .decoration-overline {
+      section.TextDecoration p.Overline {
         text-decoration: overline;
+      }
+      section.TextTransform p.None {
+        text-transform: none;
+      }
+      section.TextTransform p.Uppercase {
+        text-transform: uppercase;
+      }
+      section.TextTransform p.Lowercase {
+        text-transform: lowercase;
+      }
+      section.TextTransform p.Capitalize {
+        text-transform: capitalize;
       }
     </style>
   </head>
   <body>
-    <h1>Type Styling - Jayce Bordelon</h1>
-
-    <div class="summary">
-      <p><strong>Font:</strong> system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif</p>
-      <p><strong>Size:</strong> 16px</p>
-    </div>
-
-    <div class="property-group">
-      <div class="property-title">Font Weight</div>
-      <p class="sample weight-bold"><span class="label">Bold:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample weight-normal"><span class="label">Normal:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample weight-light"><span class="label">Lighter:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-    </div>
-
-    <div class="property-group">
-      <div class="property-title">Font Style</div>
-      <p class="sample style-italic"><span class="label">Italic:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample style-normal"><span class="label">Normal:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample style-oblique"><span class="label">Oblique:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-    </div>
-
-    <div class="property-group">
-      <div class="property-title">Letter Spacing</div>
-      <p class="sample spacing-wide"><span class="label">Wide:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample spacing-normal"><span class="label">Normal:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample spacing-tight"><span class="label">Tight:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-    </div>
-
-    <div class="property-group">
-      <div class="property-title">Text Transform</div>
-      <p class="sample transform-uppercase"><span class="label">Uppercase:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample transform-lowercase"><span class="label">Lowercase:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample transform-capitalize"><span class="label">Capitalize:</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-    </div>
-
-    <div class="property-group">
-      <div class="property-title">Text Decoration</div>
-      <p class="sample decoration-underline"><span class="label">Underline:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample decoration-line-through"><span class="label">Line Through:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-      <p class="sample decoration-overline"><span class="label">Overline:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
-    </div>
+    <section>
+      <h1 class="styledFont">Crimson Text</h1>
+      <p>font-family: 'Crimson Text';<br />font-size: 24px;</p>
+    </section>
+    <section class="FontWeight">
+      <h2>Font Weight</h2>
+      <h3>font-weight: normal;</h3>
+      <p class="styledFont Normal">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>font-weight: bold;</h3>
+      <p class="styledFont Bold">I'll be taking these Huggies, and whatever cash ya got.</p>
+    </section>
+    <section class="FontStyle">
+      <h2>Font Style</h2>
+      <h3>font-style: normal;</h3>
+      <p class="styledFont Normal">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>font-style: italic;</h3>
+      <p class="styledFont Italic">I'll be taking these Huggies, and whatever cash ya got.</p>
+    </section>
+    <section class="LetterSpacing">
+      <h2>Letter Spacing</h2>
+      <h3>letter-spacing: normal;</h3>
+      <p class="styledFont Normal">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>letter-spacing: .3em;</h3>
+      <p class="styledFont Wide">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>letter-spacing: -.06em;</h3>
+      <p class="styledFont Narrow">I'll be taking these Huggies, and whatever cash ya got.</p>
+    </section>
+    <section class="TextDecoration">
+      <h2>Text Decoration</h2>
+      <h3>text-decoration: none;</h3>
+      <p class="styledFont None">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>text-decoration: underline;</h3>
+      <p class="styledFont Underline">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>text-decoration: line-through;</h3>
+      <p class="styledFont LineThrough">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>text-decoration: overline;</h3>
+      <p class="styledFont Overline">I'll be taking these Huggies, and whatever cash ya got.</p>
+    </section>
+    <section class="TextTransform">
+      <h2>Text Transform</h2>
+      <h3>text-transform: none;</h3>
+      <p class="styledFont None">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>text-transform: uppercase;</h3>
+      <p class="styledFont Uppercase">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>text-transform: lowercase;</h3>
+      <p class="styledFont Lowercase">I'll be taking these Huggies, and whatever cash ya got.</p>
+      <h3>text-transform: capitalize;</h3>
+      <p class="styledFont Capitalize">I'll be taking these Huggies, and whatever cash ya got.</p>
+    </section>
   </body>
 </html>
