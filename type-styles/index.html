@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type Styling - Jayce Bordelon</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background: white;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .summary {
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background: #eaeaea;
+        border-left: 5px solid #555;
+      }
+
+      .property-group {
+        margin-bottom: 20px;
+        padding: 10px;
+        background: #fff;
+        border-left: 4px solid #777;
+      }
+
+      .property-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .sample {
+        margin: 5px 0;
+        padding: 5px;
+      }
+
+      .label {
+        font-weight: bold;
+        display: inline-block;
+        width: 130px;
+      }
+
+      .weight-bold {
+        font-weight: bold;
+      }
+      .weight-normal {
+        font-weight: normal;
+      }
+      .weight-light {
+        font-weight: lighter;
+      }
+
+      .style-italic {
+        font-style: italic;
+      }
+      .style-normal {
+        font-style: normal;
+      }
+      .style-oblique {
+        font-style: oblique;
+      }
+
+      .spacing-wide {
+        letter-spacing: 3px;
+      }
+      .spacing-normal {
+        letter-spacing: normal;
+      }
+      .spacing-tight {
+        letter-spacing: -1px;
+      }
+
+      .transform-uppercase {
+        text-transform: uppercase;
+      }
+      .transform-lowercase {
+        text-transform: lowercase;
+      }
+      .transform-capitalize {
+        text-transform: capitalize;
+      }
+
+      .decoration-underline {
+        text-decoration: underline;
+      }
+      .decoration-line-through {
+        text-decoration: line-through;
+      }
+      .decoration-overline {
+        text-decoration: overline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Type Styling - Jayce Bordelon</h1>
+
+    <div class="summary">
+      <p><strong>Font:</strong> system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif</p>
+      <p><strong>Size:</strong> 16px</p>
+    </div>
+
+    <div class="property-group">
+      <div class="property-title">Font Weight</div>
+      <p class="sample weight-bold"><span class="label">Bold:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample weight-normal"><span class="label">Normal:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample weight-light"><span class="label">Lighter:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+    </div>
+
+    <div class="property-group">
+      <div class="property-title">Font Style</div>
+      <p class="sample style-italic"><span class="label">Italic:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample style-normal"><span class="label">Normal:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample style-oblique"><span class="label">Oblique:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+    </div>
+
+    <div class="property-group">
+      <div class="property-title">Letter Spacing</div>
+      <p class="sample spacing-wide"><span class="label">Wide:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample spacing-normal"><span class="label">Normal:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample spacing-tight"><span class="label">Tight:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+    </div>
+
+    <div class="property-group">
+      <div class="property-title">Text Transform</div>
+      <p class="sample transform-uppercase"><span class="label">Uppercase:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample transform-lowercase"><span class="label">Lowercase:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample transform-capitalize"><span class="label">Capitalize:</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+    </div>
+
+    <div class="property-group">
+      <div class="property-title">Text Decoration</div>
+      <p class="sample decoration-underline"><span class="label">Underline:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample decoration-line-through"><span class="label">Line Through:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+      <p class="sample decoration-overline"><span class="label">Overline:</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat neque dolores qui accusamus iste sint eos atque nihil! Consequuntur, ratione aut rem hic veniam dolore nisi odio eius itaque vitae.</p>
+    </div>
+  </body>
+</html>
