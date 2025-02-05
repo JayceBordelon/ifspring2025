@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The HTML Box Model</title>
+    <link rel="stylesheet" href="https://wudesign.me/resources/basic-layout/css/styles.css" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <article>
+      <h1>Styling the Box</h1>
+
+      <section>
+        <h1>What is the Box Model?</h1>
+
+        <div class="box-layers">
+          <p>
+            Every element on the page implements the <dfn>HTML box model</dfn>, which is the system by which a browser determines the white-space within and around the element. You can think of each
+            element as being an onion, which has a core &mdash; the <dfn>content-box</dfn> &mdash; surrounded by three layers: the <dfn>padding-box</dfn>, which is contained by the
+            <dfn>border-box</dfn>, which is in turn surrounded by the <dfn>margin-box</dfn>.
+          </p>
+
+          <p>
+            The Chrome Inspector provides a helpful diagram whenever you have an element selected, showing the dimensions of each of these boxes. Let's style <code>.box-layers</code> to demonstrate.
+          </p>
+        </div>
+
+        <ol class="instructions">
+          <li>Create a css folder and stylesheet, and link it to this document.</li>
+          <li>Select the 'box-layers' div above, and add <code>background-color: #eeeeee;</code>.</li>
+        </ol>
+
+        <p>
+          There is now a light gray box showing immediately behind the paragraphs above. Note that the box is defined by the actual dimensions of the content (the words), and it grows to contain them
+          as needed. This is the content-box.
+        </p>
+
+        <ol class="instructions">
+          <li>Add <code>padding: 2rem;</code> to your <code>.box-layers</code> selector.</li>
+        </ol>
+
+        <p>
+          We can now see that the box has padding between it's 'edge' and the actual content. The content-box itself is still immediately around the content, but there is a new layer surrounding it,
+          the padding-box. Try inspecting in Chrome. Click on the <code class="tag">div class="box-layers"</code> element in the document outline,then hover over the word 'padding' the inspector's
+          box-model diagram. You should see a green highlight on the rendered page indicating the element's padding-box. Note that the content-box <em>shrunk</em> to make room for the padding box.
+        </p>
+
+        <ol class="instructions">
+          <li>Add <code>border: 10px solid #dddddd;</code> to your <code>.box-layers</code> selector.</li>
+        </ol>
+
+        <p>
+          We've just added a border, which creates a new layer for the element, the border-box. Inspecting in chrome should highlight the border in yellow. Note that padding and content shrunk again
+          to make room for the border.
+        </p>
+
+        <ol class="instructions">
+          <li>Add <code>margin: 4rem;</code> to your <code>.box-layers</code> selector.</li>
+        </ol>
+
+        <p>
+          This adds the margin-box to the element. In the inspector, we can see the margin as an orange layer. Note once again that the inner layers shrunk to make room for the margin. Also note that
+          the background-color we assigned does <strong>not</strong> extend into the margin. Margin defines the space 'between' this element and the elements around it.
+        </p>
+      </section>
+
+      <section>
+        <h1>CSS shorthand for box-model properties</h1>
+
+        <p>We added margin to the box above, but it added it all the way around. What if we only wanted to add space above and below, but not left and right?</p>
+
+        <ol class="instructions">
+          <li>Change your <code>margin</code> rule to <code>margin: 4rem 0;</code></li>
+        </ol>
+
+        <p>
+          We've just used css to provide <em>two</em> values for margin. The first (<code>4rem</code>) is the vertical margin, the second (<code>0</code>) is the horizontal margin. This same shorthand
+          works with <code>padding</code>.
+        </p>
+
+        <p>Similarly, if we provide <em>four</em> values, the browser will apply them to the element clockwise from the top (top right bottom left).</p>
+
+        <ol class="instructions">
+          <li>Change your <code>padding</code> rule to <code>padding: 2rem 1rem 4rem 1rem;</code></li>
+        </ol>
+
+        <p>
+          Additionally, there are css properties (<code>border-top</code>, <code>border-right</code>, <code>padding-bottom</code>, <code>margin-left</code>, etc.) to control each side of the box
+          individually.
+        </p>
+
+        <ol class="instructions">
+          <li>Replace your <code>border</code> rule with <code>border-top: 10px solid #dddddd;</code></li>
+        </ol>
+
+        <p>
+          Finally, note that the <code>border</code> property is itself a shorthand for three individual properies: <code>border-width</code>, <code>border-style</code>, and <code>border-color</code>.
+        </p>
+      </section>
+
+      <section>
+        <h1>Margin collapse</h1>
+
+        <p>Consider the paragraphs in this section. There is vertical space between paragraphs, defined by margin.</p>
+
+        <p>
+          You might control that margin with a style rule like <code>p { margin: 1em 0; }</code>. You might expect such a rule to create a 1em margin above each paragraph and 1em below, making a total
+          space between paragraphs of 2em.
+        </p>
+
+        <p>
+          In fact, the space between two adjacent paragraphs remains only 1em. The reason is this: when two adjacent boxes both define a margin for the space between,
+          <em>the larger of the two values 'wins' and the other value is ignored.</em>
+        </p>
+
+        <p>
+          Another quirk of margin-collapse is that margin can <em>spill out</em> of a parent container. Inspect the <code class="tag">h2</code> tag below, which is contained within a
+          <code class="tag">div</code>. If you inspect these elements and hover over them in the document outline, you'll find that the <code class="tag">div</code> is nestled tightly around the
+          title, but the title's margin is spilling out past the div. This allows us to wrap a semantic element like a <code>section</code> around a block of text without having an unexpected style
+          side effect.
+        </p>
+
+        <div class="h2-wrapper">
+          <h2>Margin spiller!</h2>
+        </div>
+
+        <p>However, watch what happens if we add a border to the <code class="tag">div</code>!</p>
+
+        <ol class="instructions">
+          <li>Create a style rule for <code>.h2-wrapper</code> that sets <code>border: 1px solid black;</code></li>
+        </ol>
+
+        <p>
+          If you inspect the <code class="tag">h2</code> now, you'll see it's margin is contained entirely within the <code class="tag">div</code>. Adding a border on the parent container
+          <em>cancels</em> the margin-collapse behavior. Adding padding does the same thing.
+        </p>
+      </section>
+
+      <section>
+        <h1>The <code>box-sizing</code> property</h1>
+
+        <p>
+          A block-level element normally expands to fill the width of it's parent &mdash; in this case, the page. We saw earlier that when we added padding, border, and margin to an element, that
+          element "shrunk" to make room for the added layers, and the outer-most layer remained the full width of the page. This behavior is a little bit magical... the browser just assumes we want to
+          keep the overall element within its parent, and adjusts accordingly. Let's see that happen again.
+        </p>
+
+        <ol class="instructions">
+          <li>
+            Create the following ruleset:
+            <pre><code>.box-sizing-example {
+  background-color: #eeeeee;
+  padding: 2rem;
+  border: 10px solid #dddddd;
+}</code></pre>
+          </li>
+        </ol>
+
+        <div class="box-sizing-example">
+          <p>
+            We've wrapped this box with some padding and borders, and it has shrunk the content-box to make room accordingly. But what happens if we explicitly set the width of this element ourselves?
+          </p>
+        </div>
+
+        <ol class="instructions">
+          <li>Add <code>width: 100%;</code> to the ruleset above.</li>
+        </ol>
+
+        <p>
+          WTF? The box got wider and is now spilling out of the normal page column to the right! We set it to 100% width, which is the default behavior for a block-level element anyway... so what
+          gives?
+        </p>
+
+        <p>
+          It turns out that by default, setting the <code>width</code> property tells the browser to make the <em>content-box</em> that width. The browser basically says "Oh, you are controlling width
+          of the content box now? No problem, I'll just add these other layers <em>outside</em> now, instead of shrinking the content box to make room for them." The net effect is that by setting
+          <code>width</code>, we can inadvertently make things 'spill out' to the right. This can cause very annoying problems with unintentional horizontal scrolling on the page.
+        </p>
+
+        <p>There is, however, a solution: the <code>box-sizing</code> property.</p>
+
+        <ol class="instructions">
+          <li>Add <code>box-sizing: border-box;</code> to the ruleset.</li>
+        </ol>
+
+        <p>
+          The box has shrunk down again, and it's edge is realigned with the document edge. The reason is this: <code>box-sizing: border-box;</code> tells the browser that when we set a width, we're
+          talking about the width of the box measured at the outer-edge of it's <em>border-box</em>, not the edge of the <em>content-box</em>. So, the browser applies our width instruction at the
+          border, and shrinks the padding and content boxes as needed to make them fit. Happy alignment once again!
+        </p>
+      </section>
+
+      <section>
+        <h1><code>width</code>, <code>height</code>, and <code>overflow</code></h1>
+
+        <p>As you have deduced from the preceeding section, width and height are settable properties. Let's set width to 50% on the box below.</p>
+
+        <ol class="instructions">
+          <li>Create a ruleset for <code>.overflow-example</code>.</li>
+          <li>Set <code>width: 50%;</code></li>
+        </ol>
+
+        <div class="overflow-example">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec scelerisque leo. Duis pellentesque sit amet elit ultricies tincidunt. Proin viverra tempus enim, et tempor quam pulvinar
+            a. Integer interdum at mi id luctus. Aenean fringilla mauris quis sapien pretium, at aliquet diam consectetur. Maecenas non nibh malesuada, feugiat turpis ultrices, lobortis leo. Nam
+            semper bibendum quam, vel pulvinar metus ultricies ut. Fusce aliquam porttitor massa non aliquam. Curabitur tristique tortor quis lacus blandit aliquam. Praesent vel malesuada dolor, ac
+            luctus metus. Nullam vulputate nisl vulputate enim volutpat elementum.
+          </p>
+        </div>
+
+        <p>
+          The width of the box shrunk, and the box got taller to accomodate the text within, right? Height of a block-level element will automatically adjust to contain it's contents... until we tell
+          it differently.
+        </p>
+
+        <ol class="instructions">
+          <li>Set <code>height: 300px;</code> on the box.</li>
+        </ol>
+
+        <p>Nooo! We forced the size of the box, and now the content is spilling out! So much horrible spilling. How can we deal with this? The <code>overflow</code> property!</p>
+
+        <ol class="instructions">
+          <li>Set <code>overflow: hidden;</code> on the box.</li>
+        </ol>
+
+        <p>This hides anything that spills past the border box. We can also <em>(shudder)</em> make it scroll:</p>
+
+        <ol class="instructions">
+          <li>Set <code>overflow: auto;</code> on the box.</li>
+        </ol>
+
+        <p>
+          The box is now a scrolling container, allowing the content inside to have it's own scrollbar. Neat. Now... never, ever do this. This is almost always a terrible UX choice, and there is also
+          almost always a better way to solve whatever problem you want to use this for. Pretend I never showed it to you. The takeaway from this section should not be "I can make scrolling
+          containers!" Instead, it should be "Don't set height on the box. Just let it stay flexible, growing automatically to hold it's content."
+        </p>
+      </section>
+    </article>
+  </body>
+</html>
