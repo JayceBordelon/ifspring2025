@@ -1,0 +1,22 @@
+.full-screen {
+  width: 100%;
+}
+
+.square {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.background-image-example {
+  background-image: url('https://wudesign.me/resources/using-images/images/shelf-cloud-vertical.jpg');
+  padding: 10% 5% 45% 40%;
+  background-size: cover;
+  background-position: center 20%;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+}
