@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Building Grids</title>
+    <link rel="stylesheet" href="https://wudesign.me/resources/basic-layout/css/styles.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Building Grids</h1>
+
+    <p>
+      There are a number of ways to build grids with HTML and css. Let's look at a few of the most
+      common.
+    </p>
+
+    <p>
+      We're going to build three grids, each very visually similar, but using different techniques.
+      However, many of the styles will be <em>shared across all three grids</em>, and therefore each
+      grid will have <strong>two</strong> classes: one that they all share (<code>grid</code>) and
+      one that is specific to the technique (<code>using-inline-block</code>,
+      <code>using-flex</code>, or <code>using-grid</code> ). Pay attention to the instructions,
+      because some rules will be applied using the shared class, and some with the specific class!
+    </p>
+
+    <section>
+      <h1>Grids using the <code class="tag">table</code> element</h1>
+
+      <p>
+        Do not use tables to create layout grids. While the <code class="tag">table</code> element
+        does indeed produce a grid of cells, its semantic purpose is actually to present data that
+        is tabular, like a spreadsheet of numbers. It is <strong>not</strong> intended to be used as
+        a layout tool for page content. It also handles <dfn>responsiveness</dfn> (the ability of
+        the page to adjust to the width of the window on any device) poorly.
+      </p>
+    </section>
+
+    <section>
+      <h1>Grids using <em>float</em></h1>
+
+      <p>
+        It is possible to use the <em>float</em> property to create grids, and you may see some
+        suggestions online for doing so. Don't.
+        <em
+          >As a general rule, you should only use <code>float</code> when you actually need to wrap
+          text or other inline elements around another element.</em
+        >
+      </p>
+    </section>
+
+    <section>
+      <h1>Grids using <em>inline-block</em></h1>
+
+      <p>
+        We've discussed how some elements are <em>inline</em> elements and some are
+        <em>block</em> elements.You may have figured out by now that we can control this behavior
+        with the <code>display</code> css property. Even though a
+        <code class="tag">code</code> element (for instance) is normally <em>inline</em>, we can
+        force it to be a <em>block</em> element with css like this:
+        <code>code { display: block; }</code>.
+      </p>
+
+      <p>
+        There exists a 'hybrid' of these two behaviors: <code>display: inline-block;</code>.
+        Elements with this rule applied will be styleable like blocks (all of the padding, margin,
+        etc), but will <strong>not</strong> expand automatically to fill the width of their parent.
+        Instead, they will only be wide enough to hold their content, and more importantly, they
+        will align themselves horizontally like words, fitting themselves left-to-right until
+        wrapping to a new line. We can use this behavior to make a grid!
+      </p>
+
+      <p>
+        Note that in this example and with others following, we'll use a
+        <code class="tag">ul</code> element to represent the grid, and
+        <code class="tag">li</code> elements for each cell in the grid. This is because in most
+        cases, a grid is conceptually a list that we're just 'presenting' in rows/columns because
+        it's an effective way to communicate small multiples of a thing &mdash; like portraits in a
+        yearbook. Semantically, those portraits are just an alphabetical list.
+      </p>
+
+      <p>
+        I've started a list below, with a single item. Let's begin by populating the HTML of our
+        list.
+        <em
+          >Don't be alarmed: The pictures are going to be huge. We'll take care of that in a minute
+          when we add css.</em
+        >
+      </p>
+
+      <ol class="instructions">
+        <li>
+          Replicate the <code class="tag">li</code> element below to make a new
+          <code class="tag">li</code> for eight people. You should end up with a single
+          <code class="tag">ul</code> containing eight list items, each item with a photo and name.
+        </li>
+      </ol>
+
+      <!-- Grid using inline-block -->
+      <ul class="grid using-inline-block">
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+      </ul>
+
+      <p>Okay, let's get these images under control so we can see what we're doing.</p>
+
+      <ol class="instructions">
+        <li>Create a stylesheet for this exercise, and link it in the document head.</li>
+        <li>
+          Add a css ruleset that selects <code class="tag">img</code> elements inside
+          <code>.grid</code>. This is the shared class, so this rule will apply to
+          <strong>all</strong> of the grids we build.
+        </li>
+        <li>In the selector, add this rule: <code>width: 150px;</code></li>
+      </ol>
+
+      <p>
+        The images are now small, but the list-items are still displaying as a bulleted list. Let's
+        override the default list styles.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          Create a ruleset for the <code>.grid</code> class, and add the rule
+          <code>padding: 0;</code>. This should remove default padding on the
+          <code class="tag">ul</code> that wraps our grid.
+        </li>
+        <li>
+          Create a new ruleset to select the <code class="tag">li</code> elements within
+          <code>.grid</code>. Add the rule <code>display: block;</code>.
+        </li>
+      </ol>
+
+      <p>
+        Add a new selector for this specific grid's li. Use <code>.using-inline-block li</code>.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          For this grid's <code class="tag">li</code> elements, set
+          <code>display: inline-block;</code>. Be sure you aren't styling using the shared
+          <code>.grid li</code> selector!
+        </li>
+      </ol>
+
+      <p>
+        At this point, our grid starts to look like it makes sense. But lets take a few more steps
+        to tidy things up. We'll apply these rules using the shared <code>grid</code> class, so we
+        don't have to do them again for the next grid.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          You should have already created a selector for <code>.grid li</code>, now add the
+          following rules:
+        </li>
+        <li>
+          <code>width: 25%;</code> Should ensures our grid is "4-up" (25% * 4 = 100% of the
+          available width).
+        </li>
+        <li><code>text-align: center;</code> Centers the image and name within each box.</li>
+        <li><code>font-size: 0.8rem;</code> Makes the text a bit smaller.</li>
+        <li><code>margin-bottom: 1rem;</code> Adds some space below each item.</li>
+        <li>
+          Finally, in your selector for the <code class="tag">img</code>, change the width to
+          <code>width: 90%;</code>. This means "be 90% the width of your parent." The parent
+          <code>li</code> is 25% of the total page width. This ensures the image has a bit of space
+          on either side within its parent item, even on small devices.
+        </li>
+      </ol>
+
+      <p>
+        This grid is shaping up fairly quickly, but there's one quirk. Our shared styles say the
+        <code class="tag">li</code> elements should be <code>width: 25%;</code>... so why aren't
+        they 4-up? The answer lies with a rendering detail of <code>inline-block</code> elements.
+        Because <em>inline-block</em> elements wrap like words, it turns out the browser pays
+        attention to the <kbd>space</kbd> character between these elements in the HTML code &mdash;
+        just like it pays attention to a <kdb>space</kdb> between words. What's happening is this:
+        we have 25% + 25% + 25% + 25% for our list items <strong>+ 3 spaces</strong>, which adds up
+        to more than 100%. The last item must therefore fall to the next line.
+      </p>
+
+      <p>The solution is some creative css!</p>
+
+      <ol class="instructions">
+        <li>
+          Create a selector for <code>.using-inline-block</code>, and set
+          <code>font-size: 0;</code>.
+        </li>
+      </ol>
+
+      <p>
+        We've shrunk the space <em>between</em> the <code class="tag">li</code> elements to nothing,
+        so we're back to a perfect 25% &times; 4.
+        <strong
+          >However: if we hadn't explicitly set a font-size for the
+          <code class="tag">li</code> elements earlier (remember <code>font-size: 0.8rem;</code>?),
+          our names would have disappeared too, because they'd have inherited
+          <code>font-size: 0;</code> from the surrounding <code class="tag">ul</code>.</strong
+        >
+        Try using the inspector to 'un-check' the <code>font-size</code> style rule for
+        <code>.grid li</code> and see for yourself.
+      </p>
+    </section>
+
+    <section>
+      <h1>Grids using <code>flex</code></h1>
+
+      <p>
+        <dfn>Flex Layout</dfn>, or <dfn>flexbox</dfn>, is a very powerful collection of layout tools
+        in css.This lesson will not even attempt to get into all the intricacies of flex layout, but
+        we can at least scratch the surface by seeing how it can be used for simple grids like ours.
+        If you want to dig deeper, the
+        <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+          >Complete Guide to Flexbox</a
+        >
+        is a fantastic resource.
+      </p>
+
+      <p>To demonstrate, let's copy our grid <code class="tag">ul</code> once again.</p>
+
+      <ol class="instructions">
+        <li>
+          Copy the entire <code class="tag">ul</code> grid from the previous section, and paste it
+          here, then change its class list to be <code>class="grid using-flex"</code>.
+        </li>
+      </ol>
+
+      <!-- Grid using flex -->
+      <ul class="grid using-flex">
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+      </ul>
+
+      <p>
+        Look, we picked up a bunch of existing styles from the shared <code>grid</code> class, so
+        our images are already sized, the text is centered, etc. Hurray for shared classes to avoid
+        repetition!
+      </p>
+
+      <ol class="instructions">
+        <li>Create a selector for this grid's specific class. Add the following rules:</li>
+        <li><code>display: flex;</code></li>
+        <li><code>flex-wrap: wrap;</code></li>
+      </ol>
+
+      <p>
+        A nice tidy grid once again! In previous methods, the critical rules for making the grid
+        were appled to the child elements, the <code class="tag">li</code>s. This time, we're
+        applying a rule to the parent element, the <code class="tag">ul</code>. Flex layout can feel
+        a little strange at first because we control children indirectly through rules applied to
+        the parent container, but when you're used to it, it's a very convenient and, uh, flexible
+        (sorry) system. <em>(It's also the approach I normally use for grids myself.)</em>
+      </p>
+    </section>
+
+    <section>
+      <h1>Grids using <em>grid</em></h1>
+
+      <p>
+        As with Flex layout, <em>Grid layout</em> is a very involved suite of tools, and we'll just
+        use the most basic example here. For a complete reference, use the
+        <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Complete Guide to Grid</a
+        >.
+      </p>
+
+      <p>Let's copy our grid <code class="tag">ul</code> a final time.</p>
+
+      <ol class="instructions">
+        <li>
+          Copy the entire <code class="tag">ul</code> grid from the previous section, and paste it
+          here, then change its class list to be <code>class="grid using-grid"</code>.
+        </li>
+      </ol>
+
+      <!-- Grid using CSS Grid -->
+      <ul class="grid using-grid">
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+        <li>
+          <img
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="Abram Siemsen portrait"
+          />
+          <p>Abram Siemsen</p>
+        </li>
+      </ul>
+
+      <ol class="instructions">
+        <li>
+          Create a selector for this grid's <code class="tag">ul</code> using it's specific class,
+          and add the following rules:
+        </li>
+        <li><code>display: grid;</code></li>
+        <li><code>grid-template-columns: 1fr 1fr 1fr 1fr;</code></li>
+      </ol>
+
+      <p>
+        The <dfn>fr</dfn> unit stands for <em>fraction</em>, so the above rule is instructing our
+        grid to have four columns, each with an equal fraction of the available space.
+      </p>
+
+      <p>
+        You'll see that our images got tiny. Oops! In this case, our shared rule setting the
+        <code class="tag">li</code> elements to be <code>width: 25%;</code> is working against us.
+        Since the grid column rule defines a conceptual parent 'column' in which each
+        <code class="tag">li</code> resides, we can tell each <code class="tag">li</code> to be 100%
+        of it's parent. We only want to do this for <em>this</em> grid, so we will not modify the
+        shared rule. Instead, we will override it.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          Create a selector for <code>.using-grid li</code>, and set <code>width: 100%;</code>.
+        </li>
+      </ol>
+
+      <p>
+        We are now back to having the images fill their column correctly, and our grid is complete!
+      </p>
+    </section>
+
+    <p>
+      That's the end of our grid examples <em>(finally!)</em>, but it's worth noting that an
+      extremely important part of this whole lesson has been the application of a shared class, in
+      the <code>grid</code> class. Doing so helped avoid repititious work, it also helped avoid
+      repetitous stylesheet code. If you find yourself copying entire blocks of css code then only
+      changing the selector and one tiny detail in the ruleset, <em>you're doing it wrong.</em> This
+      is a prime use-case for a shared class!
+    </p>
+  </body>
+</html>
