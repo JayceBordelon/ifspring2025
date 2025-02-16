@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Floated Elements</title>
+    <link rel="stylesheet" href="https://wudesign.me/resources/basic-layout/css/styles.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article>
+      <h1>Floated Elements</h1>
+
+      <section>
+        <p>
+          <img
+            class="portrait"
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="portrait placeholder"
+          />There is an <code class="tag">img</code> element at the beginning of this paragraph of
+          text. Because <code class="tag">img</code> tags are <em>inline</em> elements by default,
+          it is making the first line of the paragraph very tall. However, css provides a way to
+          make text flow around the image. We do this with the <dfn>float</dfn> property.
+        </p>
+
+        <p>
+          The <code>float</code> property is applied to the element around which we want text to
+          wrap. It may seem a bit counter-intutive, but in your HTML code, the floated element must
+          come <em>before</em> the text that wraps around it, just like this document. We can
+          <code>float: left;</code> or <code>float: right;</code>, but sadly, we cannot
+          <code>float: center;</code>
+        </p>
+
+        <p>
+          We can use <code>margin</code> on the floated element to control white-space around it,
+          "pushing away" the text that gets too close.
+        </p>
+
+        <ol class="instructions">
+          <li>Create a stylesheet and link it to this document.</li>
+          <li>
+            Select the <code>portrait</code> class, and add the rule <code>float: left;</code>
+          </li>
+          <li>
+            Set a <code>margin</code> value for the portrait such that it has
+            <code>2rem</code> breathing-room to the right and bottom, but <code>0</code> top and
+            left.
+          </li>
+        </ol>
+
+        <p>
+          <img
+            class="portrait"
+            src="http://wudesign.me/resources/basic-layout/images/portrait.png"
+            alt="portrait placeholder"
+          />Let's duplicate the <code class="tag">img</code> tag above, and place a copy of it at
+          the beginning of this paragraph.
+        </p>
+
+        <ol class="instructions">
+          <li>
+            Copy the <code class="tag">img</code> tag as indicated. No need to style — it will pick
+            up the same styles as the first <code class="tag">img</code> because it has the same
+            class applied.
+          </li>
+        </ol>
+
+        <p>
+          See how the Instructions block also floated around the image? Floating an element doesn't
+          only make text wrap... it makes <em>everything</em> that follows the element wrap, until
+          the element is no longer in the way. But what if we don't want that? What if we want to
+          make sure the instructions always 'get past' the floated item, no matter what?
+        </p>
+
+        <ol class="instructions">
+          <li>
+            Make a selector for <code>.instructions</code>, and add the rule
+            <code>clear: both;</code>
+          </li>
+        </ol>
+
+        <p>
+          We use the <code>clear</code> property to tell a subsequent element to 'clear' floated
+          items. You can <code>clear: left;</code> to clear any elements that are floated left,
+          <code>clear: right;</code> to clear any elements that are floated right, or
+          <code>clear: both;</code> to clear all floated items regardless of the side they're on.
+        </p>
+      </section>
+    </article>
+  </body>
+</html>
