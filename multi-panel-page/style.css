@@ -5,70 +5,82 @@ html {
   padding: 0;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #intro {
   width: 100%;
   height: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0;
+  align-items: center;
   background-image: url('./header.jpeg');
   background-size: cover;
-  background-repeat: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
 }
 
 #intro h1 {
   font-size: 5em;
   font-weight: bolder;
-  text-align: center;
-  padding: 0;
   margin: 0;
 }
 
 #intro h2 {
   font-size: 1.875em;
   font-weight: bolder;
-  text-align: center;
-  padding: 0 0 30px 0;
   margin: 0;
+  padding-bottom: 30px;
 }
 
 section {
-  padding: 2rem 22rem 2rem 22rem;
+  max-width: 1500px;
+  padding: 3rem 10%;
 }
 
 section h3 {
   text-align: center;
   font-size: 2.5em;
-  padding: 0 0 2rem 0;
-  margin: 0;
+  margin-bottom: 2rem;
 }
 
 #text-with-image {
   background-color: rgb(27, 50, 47);
   color: white;
-}
-
-#text-with-image p {
-  font-size: 18px;
+  padding: 3rem 15%;
 }
 
 #text-with-image img {
   float: right;
   margin: 1rem 0 1rem 3rem;
   outline: solid 1px white;
+  width: 400px;
+  height: auto;
+}
+
+#text-with-image p {
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 #text-with-image p:first-of-type {
   overflow: hidden;
 }
 
+#images {
+  background-color: bisque;
+  padding: 3rem 15%;
+}
+
 .images-flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  padding: 0rem;
+  gap: 1.5rem;
 }
 
 .image-next-to-text {
@@ -76,7 +88,7 @@ section h3 {
   align-items: center;
   padding: 1rem;
   border-radius: 10px;
-  width: 400px;
+  width: 420px;
 }
 
 .image-next-to-text img {
@@ -103,23 +115,91 @@ section h3 {
   margin: 0;
 }
 
-#images {
-  background-color: bisque;
-}
-
 #conclusion {
   text-align: center;
   background-color: rgb(27, 50, 47);
   color: white;
+  padding: 3rem 15%;
 }
 
 #conclusion p {
-  padding: 0 8rem 0 8rem;
   font-size: 26px;
+  line-height: 1.6;
 }
 
 footer {
-  padding: 2rem 20rem 2rem 20em;
+  padding: 1rem 2rem;
   font-size: 18px;
   background-color: white;
+}
+footer p {
+  padding-left: 200px;
+}
+
+@media (max-width: 1200px) {
+  section {
+    padding: 3rem 5%;
+  }
+  #text-with-image img {
+    width: 100%;
+    max-width: 400px;
+  }
+  .image-next-to-text {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  #intro {
+    height: auto;
+    padding: 4rem 5%;
+  }
+
+  #intro h1 {
+    font-size: 3.5em;
+  }
+
+  #intro h2 {
+    font-size: 1.5em;
+  }
+
+  section {
+    padding: 2rem 5%;
+  }
+
+  #text-with-image img {
+    float: none;
+    display: block;
+    margin: 1rem auto;
+  }
+
+  .images-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-next-to-text {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  #conclusion p {
+    font-size: 22px;
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  #intro h1 {
+    font-size: 2.5em;
+  }
+
+  #intro h2 {
+    font-size: 1.2em;
+  }
+
+  #conclusion p {
+    font-size: 20px;
+  }
 }
