@@ -1,6 +1,8 @@
 html {
   font-family: 'Archivo Narrow', serif;
   font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
 }
 
 #intro {
