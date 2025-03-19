@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Positioning</title>
+    <link rel="stylesheet" href="https://wudesign.me/resources/basic-layout/css/styles.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Positioning</h1>
+
+    <p>
+      On every page we've built thus far, the position of every element has been determined by where
+      that element landed in the <dfn>document flow</dfn>. Elements at the beginning of the HTML
+      document are positioned at the beginning of the rendered page, then as we proceed toward the
+      bottom of the source code, the finished output is rendered sequentially, more or less like
+      words in word processor. The document flow can be tricky to manage for complex layouts, but it
+      is also incredibly flexible, because it's built around the idea that content determines page
+      height. However much content you have, it always fits!
+    </p>
+
+    <p>
+      While relying on the document flow to position elements is almost always the right way to go,
+      it is not the <em>only</em> way. CSS provides us with tools for taking control of (and
+      responsibility for) the position of elements directly.
+    </p>
+
+    <p>
+      We can control the position of an element with a combination of the
+      <code>position</code> property, and the <code>top</code>, <code>right</code>,
+      <code>bottom</code>, and <code>left</code> properties.
+    </p>
+
+    <section>
+      <h1>The <em>top</em>, <em>right</em>, <em>bottom</em>, and <em>left</em> properties</h1>
+
+      <p>
+        These properties use a simple numeric value, usually expressed in pixels or as a percent,
+        such as <code>left: 100px;</code>. However, these properties are meaningless in isolation:
+        to change anything, the element must also be <em>positioned</em> using the
+        <code>position</code> property, and <em>how</em> the element is changed depends on
+        <code>position</code> as well.
+      </p>
+    </section>
+
+    <section>
+      <h1>The <em>position</em> property</h1>
+
+      <p>
+        The <em>position</em> property has five possible values: <code>static</code>,
+        <code>relative</code>, <code>absolute</code>, <code>fixed</code>, and <code>sticky</code>.
+        Setting one of these values <em>always</em> serves two purposes:
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            It specifies the <dfn>positioning model</dfn> to be used for the element. That is, what
+            method does the browser use to determine where this element goes?
+          </p>
+        </li>
+        <li>
+          It determines whether the element is a <dfn>positioning parent</dfn>. In other words:
+          should <em>absolutely-positioned</em> descendant elements use this element as a position
+          reference?
+        </li>
+      </ul>
+
+      <p>Let's look at each possible value in turn.</p>
+
+      <section class="static-example">
+        <h1><code>position: static;</code></h1>
+
+        <div class="positioned-element"></div>
+
+        <p>
+          <dfn>Static</dfn> is the normal value for html elements. It means the element follows the
+          document flow. Elements that are <code>position: static;</code> are
+          <strong>not</strong> considered to be <em>positioned</em>: the
+          <code>top|right|bottom|left</code> properties have no effect on static elements. Static
+          elements are <strong>not</strong> positioning parents: they have no special behavior for
+          positioned descendants.
+        </p>
+
+        <ol class="instructions">
+          <li>Create and link a stylesheet for this document.</li>
+          <li>
+            Create a selector for <code>.static-example .positioned-element</code>, which should
+            select the grey square above. Confirm it's working by setting
+            <code>background-color: green;</code> to change the square's color.
+          </li>
+          <li>
+            Set <code>left: 100px;</code> for the square. You'll see no change, because it is, by
+            default, <code>position: static;</code>.
+          </li>
+        </ol>
+      </section>
+
+      <section class="relative-example">
+        <h1><code>position: relative;</code></h1>
+
+        <div class="positioned-element"></div>
+
+        <p>
+          Elements set to <dfn>relative</dfn> also follow the document flow, but
+          <em>relative</em> elements are different from <em>static</em> elements in two respects.
+          They can be <em>offset</em> from their normal position in the document flow using
+          <code>top|right|bottom|left</code>.
+        </p>
+
+        <ol class="instructions">
+          <li>
+            Create a new selector for <code>.relative-example .positioned-element</code>, and change
+            this square to <code>background-color: lightblue;</code>
+          </li>
+          <li>Set <code>position: relative;</code></li>
+          <li>Set <code>left: 100px;</code></li>
+          <li>Set <code>top: 50px;</code></li>
+        </ol>
+        <p>
+          Setting <code>left: 100px;</code> on the element will move the element <em>from</em> the
+          left by 100px, offsetting it from the place it would have normally occupied. Likewise,
+          setting a <code>top</code> value moves the element downward from the top. This offset
+          motion leaves a 'hole' behind. See how there is still a gap where the square started, and
+          see how the text after it behaves as though the square is still there. That is, as far as
+          the elements around it are concerned, the offset element is still where it always was: the
+          browser applies the offset <em>after</em> the elements in the normal document flow are
+          rendered.
+        </p>
+
+        <p>
+          Elements with <code>position: relative;</code> also become the positioning-parent for
+          <em>absolutely-positioned</em> descendant elements. More about that in a moment.
+        </p>
+      </section>
+
+      <section class="absolute-example">
+        <h1><code>position: absolute;</code></h1>
+
+        <div class="positioned-element"></div>
+
+        <p>
+          Elements set to <code>position: absolute;</code> are <em>ignored</em> by the document
+          flow, as if they don't exist.
+        </p>
+
+        <ol class="instructions">
+          <li>
+            Create a new selector for the square in this section. Make it <code>red</code>, and
+            <code>position: absolute;</code>.
+          </li>
+        </ol>
+
+        <p>
+          See how the text after the element 'slid up' to fill the space? As far as that text is
+          concerned, the square isn't there anymore, it's been removed from the document flow
+          entirely.
+        </p>
+
+        <p>
+          By default, absolutely-positioned elements sit wherever the document flow would have
+          placed them, but setting any of <code>top|right|bottom|left</code> will cause the element
+          to be repositioned.
+        </p>
+
+        <ol class="instructions">
+          <li>Add the rule <code>top: 0;</code>. Don't be alarmed when the square disappears!</li>
+        </ol>
+
+        <p>
+          We have just instructed the square to be repositioned 10px away from the top... but top of
+          what? This is where the idea of the <em>positioning-parent</em> comes into play. The
+          positioning-parent is the nearest <em>ancestor</em> that is positioned. By "nearest" we
+          mean nearest generationally: the element's immediate parent, or grandparent, or
+          great-grandparent, etc. If no ancestor is positioned, the positioning-parent is the
+          document itself. Scroll to the top of this document, and find the red box sitting 0px from
+          the top edge!
+        </p>
+
+        <p>Let's give this square a positioning-parent.</p>
+
+        <ol class="instructions">
+          <li>
+            Create a selector for <code>.absolute-example</code>, which is the class for this entire
+            section.
+          </li>
+          <li>
+            Set <code>position: relative;</code> for the section. Note that the section itself
+            doesn't change it's position, because <code>relative</code> still follows the document
+            flow. But it does make this section a positioning-parent.
+          </li>
+          <li>
+            For the red box itself, set <code>right: 0;</code>. This will position it 0px from the
+            right side of the parent container.
+          </li>
+        </ol>
+
+        <p>
+          The red box is now being positioned in relation to this section, because this section is
+          its positioning-parent. It should now be pushed right up into the upper-right corner of
+          this section.
+        </p>
+
+        <p>
+          Absolutely-positioned elements are themselves also positioning-parents. That is, this
+          element becomes the positioning reference for its absolutely-positioned children, if it
+          has them.
+        </p>
+
+        <aside>
+          <p>
+            "WTF," you're undoubtedly thinking, "I could arrange the whole page this way, by putting
+            elements wherever I want them using absolute positioning!"
+          </p>
+
+          <p>
+            Yes, you could. Then you'd kick yourself for it, because it utterly destroys the
+            'content determines height' approach, and doesn't work at all for responsive design. As
+            tempting as it seems, <em>don't bother.</em> That's not what absolute positioning is
+            for.
+          </p>
+        </aside>
+      </section>
+
+      <section class="fixed-example">
+        <h1><code>position: fixed;</code></h1>
+
+        <div class="positioned-element"></div>
+
+        <p>
+          Elements with position set to <dfn>fixed</dfn> are removed from the document flow as well.
+          But rather than being positioned in relation to a positioning-parent, they are positioned
+          in relation to the browser window itself. This means that when the document scrolls, the
+          fixed-position item does not move with the page.
+        </p>
+
+        <ol class="instructions">
+          <li>Select the square in this section. Make it purple.</li>
+          <li>Set <code>position: fixed;</code>.</li>
+          <li>Set <code>top: 0;</code> and <code>left: 0;</code>.</li>
+        </ol>
+
+        <p>
+          See how the purple square is now attached to the upper-left corner of the window,
+          regardless of scroll position? We often see this technique used to keep a nav bar at the
+          top of the screen. Let's emulate that.
+        </p>
+
+        <ol class="instructions">
+          <li>Add <code>width: 100%;</code> to the selector for the purple square.</li>
+        </ol>
+
+        <p>We now have a 'nav bar' of sorts, and could put links within it.</p>
+
+        <p>
+          As with other positioned elements, setting <code>position: fixed;</code> turns this
+          element into a positioning-parent for its absolutely-positioned children, if it has them.
+        </p>
+      </section>
+
+      <section class="sticky-example">
+        <h1><code>position: sticky;</code></h1>
+
+        <div class="positioned-element"></div>
+
+        <p>
+          <dfn>Sticky</dfn> positioning is a hybrid of <em>relative</em> and <em>fixed</em>. A
+          sticky-positioned item will scroll with the page until it hits a threshold specified by
+          <code>top</code>, where it will 'stick', letting the page scroll underneath it. When the
+          bottom of the containing element arrives, it will pull the sticky element off the top of
+          the page with it.
+        </p>
+
+        <ol class="instructions">
+          <li>Select the square in this section. Make it orange.</li>
+          <li>Set <code>top: 50px;</code></li>
+        </ol>
+
+        <p>
+          The square should stay right where it started on the page, until you scroll it up to the
+          top. If you keep scrolling, you should see it pull away as this section leaves the page.
+        </p>
+
+        <p>
+          As with other positioned elements, setting <code>position: sticky;</code> turns this
+          element into a positioning-parent for its absolutely-positioned children, if it has them.
+        </p>
+      </section>
+    </section>
+
+    <section>
+      <h1>The <dfn>z-index</dfn> property</h1>
+
+      <p>
+        When we start removing elements from the document-flow, the possibility of having visually
+        overlapping elements is greatly increased. By default, positioned elements will sit 'in
+        front' of static elements, and positioned elements defined later on the page will be in
+        front of earlier positioned elements. However, the <em>z-index</em> property allows us some
+        control over the layering order. It's akin to the 'bring to front' and 'send to back'
+        options in Illustrator or InDesign.
+      </p>
+
+      <p>
+        The <code>z-index</code> property uses a numeric value. Positive numbers bring the element
+        'toward' us, negative numbers push it 'away' from us.
+      </p>
+
+      <p>
+        Remember how the blue box in the <em>relative</em> example above covered up some of the
+        text? Let's fix it with z-index.
+      </p>
+
+      <ol class="instructions">
+        <li>Find your selector for the lightblue box, and set <code>z-index: -1;</code>.</li>
+      </ol>
+
+      <p>
+        You certainly also noticed that the orange 'sticky' square passed in front of the purple
+        'navbar' as it was pulled off the page, which felt wrong. That's because they are both
+        positioned items, and the sticky square came later in the document, so is layered higher by
+        default. We can use z-index to fix that, too.
+      </p>
+
+      <ol class="instructions">
+        <li>Find your selector for the purple navbar. Set <code>z-index: 9999;</code></li>
+      </ol>
+
+      <p>
+        There's nothing magic about the number 9999, it's just a value that brings the navbar very
+        far forward, with the hope that any other z-indexed items on the page will also pass beneath
+        it.
+      </p>
+
+      <p>
+        It's worth noting that the stacking order defined by z-index is organized by 'stacking
+        context.' The details can be learned from a good reference like the
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context"
+          >Mozilla Developer Network</a
+        >, but the short version is that z-index on a parent brings all of its child elements too.
+        If element A is z-indexed to be in front of element B, then element A's children cannot be
+        z-indexed to be behind element B, no matter what number you give them.
+      </p>
+    </section>
+
+    <p>
+      As we conclude, I want to reiterate that using positioning means you are assuming
+      responsibility for how the element is placed on the page, and for making sure the element is
+      appropriately-handled at all page-widths. That can be difficult to do, and for that reason,
+      these techniques should <strong>not</strong> be considered an alternative to the normal
+      document flow. Instead, think of them as tools for controlling UI elements (like the navbar),
+      or for adding small presentation enhancements <em>within</em> the normal document flow.
+    </p>
+  </body>
+</html>
