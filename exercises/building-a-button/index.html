@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building a Button</title>
+    <script src="https://kit.fontawesome.com/049657f600.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://wudesign.me/resources/basic-layout/css/styles.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="javascript:void(0)" class="launch-button">
+        <span class="label">Launch</span>
+        <div class="rocket">
+          <i class="fas fa-burn"></i>
+          <i class="fas fa-rocket"></i></div
+      ></a>
+    </header>
+
+    <h1>Building a button</h1>
+
+    <p>
+      The link at the top of this page is a plain-jane, run-of-the-mill, vanilla, nothing-special
+      link. But it can be so much more! Let's turn it into something to write home about!
+    </p>
+
+    <section>
+      <h1>Setting ourselves up</h1>
+
+      <p>
+        To get started, let's use a bit of positioning to keep that link visible on the page where
+        we can see it as we continue working through this exercise.
+      </p>
+
+      <ol class="instructions">
+        <li>Create and link a stylesheet for this exercise.</li>
+        <li>
+          Make a ruleset that selects the <code>header</code> element, with the following rules:
+        </li>
+        <li><code>position: fixed;</code></li>
+        <li><code>top: 0;</code></li>
+        <li><code>left: 0;</code></li>
+        <li><code>width: 100%;</code></li>
+        <li><code>height: 200px;</code></li>
+        <li><code>background: #000;</code></li>
+      </ol>
+
+      <p>This made a fixed page header, but it's covering our page content. We can fix that.</p>
+
+      <ol class="instructions">
+        <li>
+          Add a selector for the <code>body</code> element, and set <code>padding-top</code> to be
+          the same as our <code>header</code> height.
+        </li>
+      </ol>
+
+      <p>
+        Now let's center the link in our page header. Instead of using padding or margin to push the
+        link around, let's use absolute positioning. This link is <em>not</em> going to be styled
+        like a standard link, so probably best if we give it a class, rather than just selecting by
+        tag name.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          In the html, add <code>class="launch-button"</code> to the
+          <code class="tag">a</code> element.
+        </li>
+        <li>
+          In your stylesheet, add a selector for <code>.launch-button</code>. Add the following
+          styles:
+        </li>
+        <li><code>position: absolute;</code></li>
+        <li><code>left: 50%;</code></li>
+        <li><code>top: 50%;</code></li>
+      </ol>
+
+      <p>
+        The link is now in the middle of the header... sorta. It's actually riding a bit low and
+        right, because we haven't actually positioned the link's center, we've positioned it's left
+        and top edges. For the link to be truly centered, we need to offset back toward the top by
+        half the link's height, and toward the left by half the link's width. We could try to
+        measure the link and do the math, but it makes more sense to have the browser do the math
+        for us. We'll do so by using a new css property: <code>transform</code>. The
+        <code>transform</code> property is used to visually transform an element by skewing,
+        rotating, scaling, and/or translating (moving).
+      </p>
+
+      <ol class="instructions">
+        <li>Add the following to your <code>.launch-button</code> selector:</li>
+        <li>
+          <code>transform: translate(-50%, -50%);</code> (The two numbers correspond to horizontal
+          and vertical.)
+        </li>
+      </ol>
+
+      <p>
+        The link is now exactly centered... even though we don't know the exact width of either the
+        header or the link itself. It's a useful technique for centering an absolutely-positioned
+        item in its container.
+      </p>
+      <p>
+        This approach may seem a bit counter-intuitive, because it looks like we asked the link to
+        shift left by 50%, then back right by 50%. So why didn't it go back to it's starting
+        position? The answer is that when we use a percentage as a unit for
+        <em>positioning</em> we're referring to a percentage of the <em>parent container</em>. For
+        <em>transform</em>, on the other hand, percentages refer to the
+        <em>element being transformed</em>. So what we're really doing here is saying "Move from the
+        left side half the width of the header, (<code>left: 50%;</code>) then move back by half the
+        width of the link ( <code>transform: translate(-50%, -50);</code> ). Similarly, move down
+        from the top by 50% the height of the header, then back up by half the height of the link.
+      </p>
+
+      <p>The link has been located in our 'hero' position... time to style it.</p>
+    </section>
+
+    <section>
+      <h1>Making it 'button-y'</h1>
+
+      <p>Let's get rid of some default 'link' styles, and add some 'button' styles.</p>
+
+      <ol class="instructions">
+        <li>In the <code>.launch-button</code> ruleset, add:</li>
+        <li><code>text-decoration: none;</code></li>
+        <li><code>background-color: #aa0000;</code></li>
+        <li><code>color: white;</code></li>
+        <li><code>font-size: 20px;</code></li>
+        <li><code>padding: 15px 30px;</code></li>
+        <li><code>border-radius: 10px;</code></li>
+      </ol>
+
+      <p>
+        No surprises here, we've used all these properties before. Let's reinforce the interactive
+        nature of the button by giving it a <code>:hover</code> state and
+        <code>:active</code> state.
+      </p>
+
+      <ol class="instructions">
+        <li>Create a new ruleset for <code>.launch-button:hover</code>. Add:</li>
+        <li><code>background-color: #cc0000;</code></li>
+        <li><code>box-shadow: 0 0 8px #ff0000;</code></li>
+        <li>Create a new ruleset for <code>.launch-button:active</code>. Add:</li>
+        <li><code>background-color: #750000;</code></li>
+        <li><code>box-shadow: 0 0 2px #750000;</code></li>
+      </ol>
+
+      <p>
+        The <em>box-shadow</em> property is one you may not have used. It's very flexible, and can
+        make all kinds of shadows/glows. You can read
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow" target="_blank"
+          >the docs</a
+        >
+        to learn more, or you can use a
+        <a href="https://css3gen.com/wp-content/cache/all/box-shadow/index.html" target="_blank"
+          >box-shadow generator</a
+        >.
+      </p>
+
+      <p>
+        Our button now has a fun glow when we hover, and darkens when pressed. It feels like a
+        button... but maybe not a very exciting one.
+      </p>
+    </section>
+
+    <section>
+      <h1>Adding an icon</h1>
+
+      <p>
+        We've used font-awesome before to add icons. We'll use it here as well... and we're going to
+        use the <code>transform</code> property to have some fun with them. This page already has
+        the font-awesome library added in the <code class="tag">head</code>, so we're good to go.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          Inside the <code class="tag">a class="launch-button"</code> element here in the html page,
+          on a line right after the word "launch" but before the closing
+          <code class="tag">/a</code> tag, add the following html:
+          <pre><code>&lt;div class="rocket"&gt;
+  &lt;i class="fas fa-burn"&gt;&lt;/i&gt;
+  &lt;i class="fas fa-rocket"&gt;&lt;/i&gt;
+&lt;/div&gt;</code></pre>
+        </li>
+      </ol>
+
+      <p>
+        The <code class="tag">i</code> tag normally italicizes text, but font-awesome has
+        appropriated it for adding icons. We've added two icons: "burn" and "rocket."
+      </p>
+
+      <p>
+        Now, let's put these icons where we want them to go. I'd like to have the rocket sitting to
+        the right of the text, pointing straight up, with the flame coming out the bottom. The
+        <code class="tag">div class="rocket"</code> container will serve as a positioning parent for
+        the icons, and the container itself will also be positioned within the button.
+      </p>
+
+      <ol class="instructions">
+        <li>Create a selector for <code>.launch-button .rocket</code> and set:</li>
+        <li>
+          <code>position: absolute;</code> This makes it a positioning parent for its descendant
+          elements, in this case, the icons.
+        </li>
+        <li>
+          Create a selector for <code>.launch-button .rocket i</code>, which selects both icons.
+          Set:
+        </li>
+        <li><code>position: absolute;</code></li>
+        <li><code>top: 0;</code></li>
+        <li><code>left: 0;</code></li>
+      </ol>
+
+      <p>
+        The icons are now smashed together in the <code>.rocket</code> container,
+        absolutely-positioned in the same place. Now let's use <code>transform</code> to arrange
+        them the way we want.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          Select <code>.launch-button .fa-rocket</code> and set
+          <code>transform: translate(-50%, -50%) rotate(-45deg);</code>. This centers the rocket in
+          its container (just like we did the button in the header), and rotates it to point
+          straight up.
+        </li>
+        <li>
+          Select <code>.launch-button .fa-burn</code> and set
+          <code>transform: translate(-50%, -15%) rotate(180deg) scale(0.3);</code>. This centers it
+          horizontally, aligning it with the rocket, but leaves it hanging lower vertically, so it's
+          toward the rocket exhaust nozzle. It also rotates it 180&deg;, and makes it smaller.
+        </li>
+      </ol>
+
+      <p>
+        The overall rocket is still in the wrong position. Let's make room for it to live next to
+        the button text using padding, then position it in the space we make.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          In the <code>.launch-button</code> ruleset, <strong>change</strong>
+          <code>padding</code> to <code>15px 60px 15px 30px;</code>. We're opening a space on the
+          button's right side.
+        </li>
+        <li>In our <code>.launch-button .rocket</code> ruleset, add:</li>
+        <li><code>top: 50%;</code> Centers the rocket vertically.</li>
+        <li>
+          <code>right: 40px;</code> Positions the rocket 40px from the right edge, in the gap we
+          made.
+        </li>
+      </ol>
+
+      <p>The flame gets a bit lost, let's use color!</p>
+
+      <ol class="instructions">
+        <li>
+          In the <code>.launch-button .fa-burn</code> ruleset add <code>color: orange;</code>.
+        </li>
+      </ol>
+
+      <p>
+        Seems like the rocket should have some interaction on <code>:hover</code> and
+        <code>:active</code> too, doesn't it? Let's progressively increase engine power as we
+        approach launch!
+      </p>
+
+      <ol class="instructions">
+        <li>
+          In <code>.launch-button .fa-burn</code>, <strong>change</strong> the value for
+          <code>scale</code> to <code>0.1</code>. The booster will be 'off' by default.
+        </li>
+        <li>
+          Add a ruleset for <code>.launch-button:hover .fa-burn</code>. Note how this selector
+          works. It's saying "Select elements with the <code>.fa-burn</code> class that are inside
+          of a <em>hovered</em> <code>.launch-button</code>. So even though we're styling the flame,
+          this ruleset will be applied when the <em>button</em> is hovered, not the flame icon
+          itself.
+        </li>
+        <li>
+          Set <code>transform: translate(-50%, -15%) rotate(180deg) scale(0.4);</code>. We're
+          overriding the default transform to make the flame bigger on hover.
+        </li>
+        <li>
+          Create another selector for <code>.launch-button:active .fa-burn</code>, and set
+          <code>transform: translate(-50%, 25%) rotate(180deg) scale(0.8);</code>. We're overriding
+          to make the flame still bigger on active. We're also shifting it downward so the whole
+          flame is exposed.
+        </li>
+      </ol>
+
+      <p>
+        Seems like the whole rocket could also get bigger on hover, to make it pop a bit. We'll
+        scale the container that holds both icons, treating our rocket arrangement as a single
+        element.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          Create a selector for <code>.launch-button:hover .rocket</code> to select the
+          <code>.rocket</code> container when the button is hovered. Add
+          <code>transform: scale(1.3);</code>.
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h1>Launching the rocket</h1>
+
+      <p>Could we? Make the rocket actually launch? I think we can!</p>
+
+      <p>First, let's create an environment to launch into, using a linear-gradient background.</p>
+
+      <ol class="instructions">
+        <li>
+          In the selector for the header, <strong>replace</strong> <code>background</code> with
+          <code>background: linear-gradient(to bottom, #000000 40%,#0560aa 80%,#7cd4ef 100%);</code
+          >.
+        </li>
+      </ol>
+
+      <p>
+        I used
+        <a href="https://www.colorzilla.com/gradient-editor/" target="_blank"
+          >The Colorzilla Gradient Generator</a
+        >
+        to make it easy.
+      </p>
+
+      <p>
+        Now, when the button is active, let's push the button back and bring the rocket up and
+        forward.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          In <code>.launch-button</code> <strong>change</strong> <code>top</code> to
+          <code>75%</code>. We're moving the whole button downward to make room for it to launch
+          above.
+        </li>
+        <li>
+          In the <code>.launch-button:active</code> ruleset, add
+          <code>transform: translate(-50%, -20%) scale(0.7);</code>. We're pushing the button down
+          and scaling it way back when active.
+        </li>
+        <li>
+          Now create a <code>.launch-button:active .rocket</code> ruleset to select the rocket, and
+          add <code>transform: rotate(-15deg) translate(60px, -140px) scale(3.5);</code>. We're
+          launching the rocket away from the button.
+        </li>
+      </ol>
+
+      <p>
+        That's pretty fun! I feel like the label of the button is a little plain though, and it's
+        strange that there's still a gap next to it where the rocket was. Let's clean it up. We'll
+        start by adding a <code class="tag">span</code> around the word "Launch" so we can style it
+        safely without affecting the icon style.
+      </p>
+
+      <ol class="instructions">
+        <li>
+          Add a span in the html, so <code>Launch</code> becomes
+          <code>&lt;span class="label"&gt;Launch&lt;/span&gt;</code>.
+        </li>
+        <li>Create a ruleset for that label, and add the following styles:</li>
+        <li><code>letter-spacing: 0.1em;</code></li>
+        <li><code>text-transform: uppercase;</code></li>
+        <li><code>color: white;</code></li>
+        <li>Now, create a new ruleset to select the label when the button is hovered. Add:</li>
+        <li><code>color: orange;</code></li>
+        <li><code>text-shadow: 0 0 3px rgb(251, 255, 0, 0.5);</code></li>
+        <li>
+          In the <code>.launch-button:active</code> ruleset, add <code>padding: 15px 30px;</code> to
+          take away the gap when the rocket is safely away.
+        </li>
+      </ol>
+
+      <p>
+        Note the <code>text-shadow</code>? It's similar to <code>box-shadow</code>, but for text.
+        <a href="https://css3gen.com/wp-content/cache/all/text-shadow/index.html" target="_blank"
+          >Here's a useful generator</a
+        >.
+      </p>
+    </section>
+
+    <section>
+      <h1>Transitions</h1>
+
+      <p>
+        What's really going to send this thing over the moon (sorry, I'm a dad) is transitioning
+        from one state to the next, instead of just 'jumping' from default to hover to active. CSS
+        lets us do that with the <code>transition</code> property. Strap yourself in. (I'm on fire!)
+      </p>
+
+      <ol class="instructions">
+        <li>
+          In the <code>.launch-button</code> ruleset, add
+          <code
+            >transition: transform 0.5s, background-color 0.1s, padding 0.5s, box-shadow 0.1s;</code
+          >. Note how we are giving a list of properties to transition, each with a duration. So
+          <code>padding</code>, for instance, will transition over 0.5 seconds.
+        </li>
+        <li>
+          In the <code>.launch-button .rocket</code> ruleset, add
+          <code>transition: transform 0.5s;</code>.
+        </li>
+        <li>
+          In the <code>.launch-button .label</code> selector, add
+          <code>transition: color 0.2s, text-shadow 0.2s;</code>.
+        </li>
+        <li>
+          In the <code>.launch-button .fa-burn</code> selector, add
+          <code>transition: transform 0.4s;</code>.
+        </li>
+      </ol>
+
+      <p>Press the button and marvel at what you have made!</p>
+    </section>
+
+    <section>
+      <h1>Animations</h1>
+
+      <p>
+        You might think we're done... you might <em>want</em> to be done... but no, we have one
+        final area to explore. Transitions are great, but what if you want an animation to keep
+        going?
+      </p>
+
+      <ol class="instructions">
+        <li>
+          Copy the following into your stylesheet:
+          <pre><code>@keyframes burn {
+  from { transform: rotate(-7deg); }
+  33% { transform: rotate(4deg); }
+  66% { transform: rotate(-4deg); }
+  to { transform: rotate(7deg); }
+}</code></pre>
+        </li>
+      </ol>
+
+      <p>
+        We've just added a set of <em>keyframes</em> with the name <em>burn</em>. The keyframes
+        define a series of changes to a property or set of properties. But if you look at the page,
+        you won't see any change yet. That's because we have not <em>applied</em> these keyframes to
+        any element.
+      </p>
+
+      <p>
+        I want to apply them to our flame icon, to give it a 'shaking' effect. However, the flame
+        already has a <code>transform</code> on it, and I don't want to mess with that. The
+        inspector reveals, however, that the actual icon is in a <code>::before</code> element,
+        because that's how font-awesome does it, which means I can style the
+        <code>::before</code> element without changing anything about the
+        <code class="tag">i</code> tag that contains it.
+      </p>
+
+      <p>So let's apply this animation.</p>
+
+      <ol class="instructions">
+        <li>Create a <code>.launch-button:active .fa-burn::before</code> ruleset, and add:</li>
+        <li><code>display: block;</code> Not sure why, but needs this to animate.</li>
+        <li>
+          <code>transform-origin: center bottom;</code> This means "apply the transform around an
+          axis at the base of the flame, not the center of it."
+        </li>
+        <li>
+          <code>animation-name: burn;</code> This tells the element that it should use the "burn"
+          keyframes.
+        </li>
+        <li>
+          <code>animation-duration: 0.1s;</code> Specifies the time over which a single 'loop' of
+          the keyframes should span.
+        </li>
+        <li>
+          <code>animation-iteration-count: infinite;</code> This tells the animation to loop without
+          end (as long as this selector applies).
+        </li>
+        <li>
+          <code>animation-direction: alternate;</code> This tells the keyframes to alternate forward
+          and backward in time, 'bouncing' back and forth.
+        </li>
+      </ol>
+
+      <p>
+        As you appreciate what you've made, be sure to make appropriate rocket-booster noises with
+        your mouth.
+      </p>
+    </section>
+
+    <p>
+      Our mission is complete. In the process of styling this button we've introduced linear
+      gradients, box shadows, text-shadows, transforms, transitions, and animations. It's as far as
+      I will take you for now, but know that each of these things has tremendous capability and
+      flexibility, and you should treat this as only a single example of how and where they might be
+      applied. While we used them for a button, there's nothing that says they can't be used
+      elsewhere, and in infinite combinations. Explore!
+    </p>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+body {
+  padding-top: 200px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, #000000 40%, #0560aa 80%, #7cd4ef 100%);
+}
+
+.launch-button {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  background-color: #aa0000;
+  color: white;
+  font-size: 20px;
+  padding: 15px 30px;
+  border-radius: 10px;
+  padding: 15px 60px 15px 30px;
+  transition: transform 0.5s, background-color 0.1s, padding 0.5s, box-shadow 0.1s;
+}
+
+.launch-button:hover {
+  background-color: #cc0000;
+  box-shadow: 0 0 8px #ff0000;
+}
+
+.launch-button:hover .fa-burn {
+  transform: translate(-50%, -15%) rotate(180deg) scale(0.4);
+}
+
+.launch-button:active .fa-burn {
+  transform: translate(-50%, 25%) rotate(180deg) scale(0.8);
+}
+
+.launch-button:hover .rocket {
+  transform: scale(1.3);
+}
+
+.launch-button:active {
+  background-color: #750000;
+  box-shadow: 0 0 2px #750000;
+  transform: translate(-50%, -20%) scale(0.7);
+  padding: 15px 30px;
+}
+
+.launch-button:active .rocket {
+  transform: rotate(-15deg) translate(60px, -140px) scale(3.5);
+}
+
+.launch-button .rocket {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transition: transform 0.5s;
+}
+
+.launch-button .rocket i {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.launch-button .fa-rocket {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.launch-button .fa-burn {
+  transform: translate(-50%, -15%) rotate(180deg) scale(0.1);
+  color: orange;
+  transition: transform 0.4s;
+}
+
+.label {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.launch-button:hover .label {
+  color: orange;
+  text-shadow: 0 0 3px rgb(251, 255, 0, 0, 0.5);
+}
+
+.launch-button:active .fa-burn::before {
+  display: block;
+  transform-origin: center bottom;
+  animation-name: burn;
+  animation-duration: 0.1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes burn {
+  from {
+    transform: rotate(-7deg);
+  }
+  33% {
+    transform: rotate(4deg);
+  }
+  66% {
+    transform: rotate(-4deg);
+  }
+  to {
+    transform: rotate(7deg);
+  }
+}
