@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buttons — James Fawcett</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Rubik+Doodle+Shadow&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        color: #333;
+        font-family: 'Open Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      main {
+        margin: 40px;
+      }
+
+      h1 {
+        font-size: 30px;
+        margin-bottom: 40px;
+      }
+
+      .button_container {
+        border: 1px solid #ddd;
+        margin: 0 10px 10px 0;
+        padding: 20px;
+        width: 300px;
+        height: 300px;
+        float: left;
+        overflow: hidden;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      a {
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      #btn_ideo {
+        display: inline-block;
+        background-color: #f04e23;
+        color: #fff;
+        padding: 12px 28px;
+        font-size: 22px;
+        font-family: 'Montserrat', sans-serif;
+        border-radius: 4px;
+        margin-top: 100px;
+      }
+
+      #btn_ideo:hover {
+        background-color: #000;
+        color: #6fcbc9;
+      }
+
+      #btn_kittens {
+        display: inline-block;
+        margin-top: 90px;
+        background-color: #ff5050;
+        font-family: 'Rubik Doodle Shadow', cursive;
+        color: #000;
+        font-size: 20px;
+        padding: 16px 20px;
+        border: 4px dashed #222;
+        border-radius: 10px;
+        transform: rotate(-2deg);
+      }
+
+      #btn_kittens:hover {
+        background-color: yellow;
+        color: #e60000;
+        transform: rotate(2deg) scale(1.1);
+      }
+      #btn_harley {
+        display: inline-block;
+        background-color: #000;
+        color: #f57c00;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 24px;
+        padding: 14px 26px;
+        border: 3px solid #f57c00;
+        margin-top: 100px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      #btn_harley:hover {
+        background-color: #f57c00;
+        color: #000;
+        border: 3px solid #000;
+      }
+
+      #btn_colorrun {
+        display: inline-block;
+        padding: 12px 25px;
+        margin-top: 90px;
+        font-size: 18px;
+        font-family: 'Pacifico', cursive;
+        background-image: linear-gradient(
+          45deg,
+          #ff0000,
+          #ff9900,
+          #ffff00,
+          #33cc33,
+          #3399ff,
+          #9900cc
+        );
+        color: #000000;
+        border: none;
+        border-radius: 30px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+      }
+
+      #btn_colorrun:hover {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
+
+      #btn_mollyjogger {
+        display: inline-block;
+        background-color: #7d5a4f;
+        color: #fff8dc;
+        font-family: 'Courier New', monospace;
+        font-size: 18px;
+        margin-top: 95px;
+        padding: 14px 20px;
+        border: 2px solid #fff8dc;
+        border-radius: 5px;
+      }
+
+      #btn_mollyjogger:hover {
+        background-color: #fff8dc;
+        color: #7d5a4f;
+        border: 2px solid #7d5a4f;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Button Styling — Jayce Bordelon</h1>
+
+      <div class="button_container">
+        <a href="http://ideo.org" target="_blank" id="btn_ideo">IDEO.org</a>
+      </div>
+
+      <div class="button_container">
+        <a href="http://www.explodingkittens.com/" target="_blank" id="btn_kittens"
+          >EXPLODING<br />KITTENS</a
+        >
+      </div>
+
+      <div class="button_container">
+        <a href="http://www.harley-davidson.com/" target="_blank" id="btn_harley">Harley</a>
+      </div>
+
+      <div class="button_container">
+        <a href="http://thecolorrun.com/" target="_blank" id="btn_colorrun">The Color Run</a>
+      </div>
+
+      <div class="button_container">
+        <a href="http://www.mollyjogger.com/" target="_blank" id="btn_mollyjogger">Mollyjogger</a>
+      </div>
+    </main>
+  </body>
+</html>
