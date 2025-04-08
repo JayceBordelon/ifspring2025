@@ -1,0 +1,16 @@
+@import url('./reset.css');
+@import url('./header.css');
+
+:root {
+  --zelda-brown: #37341e;
+  --zelda-gold: #b9a066;
+  --zelda-blue: #2a3a4e;
+  --main-text-color: rgb(238, 238, 238);
+  --main-bg-color: rgb(34, 34, 34);
+}
+
+html,
+body {
+  color: var(--main-text-color);
+  background-color: var(--main-bg-color);
+}
