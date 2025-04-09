@@ -5,20 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="./styles/root.css" />
-    <title>The Legend of Zelda: Breath of the Wild</title>
+    <link rel="stylesheet" href="./styles/home.css" />
+    <title>Zelda - Breath of the Wild</title>
   </head>
   <body>
     <header id="header">
-      <img src="./images/Logo.png" alt="logo" />
-      <nav id="nav">
-        <ul id="nav-links">
-          <li class="nav-link"><a href="#">Home</a></li>
-          <li class="nav-link"><a href="#">Gameplay</a></li>
-          <li class="nav-link"><a href="#">Plot</a></li>
-          <li class="nav-link"><a href="#">Dev</a></li>
-          <li class="nav-link"><a href="#">Reception</a></li>
-        </ul>
-      </nav>
+      <img src="./images/logo.webp" alt="logo" />
+      <div class="nav-wrapper">
+        <button id="nav-toggle">&#9776;</button>
+        <nav id="nav">
+          <ul id="nav-links">
+            <li class="nav-link"><a href="index.html">Home</a></li>
+            <li class="nav-link"><a href="gameplay.html">Gameplay</a></li>
+            <li class="nav-link"><a href="plot.html">Plot</a></li>
+            <li class="nav-link"><a href="dev.html">Dev</a></li>
+            <li class="nav-link"><a href="reception.html">Reception</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
+
+    <section class="hero">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <img class="hero-logo" src="./images/logo.webp" alt="Breath of the Wild Logo" />
+          <h2>Awaken the Hero Within</h2>
+          <p>Explore the vast world of Hyrule in the most ambitious Zelda adventure ever.</p>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="intro">
+        <h1>The Legend of Zelda: Breath of the Wild</h1>
+        <p>
+          <em>The Legend of Zelda: Breath of the Wild</em> is a critically acclaimed
+          action-adventure game developed and published by Nintendo for the Nintendo Switch and Wii
+          U consoles. Released on March 3, 2017, it marks a significant evolution in the Zelda
+          series by introducing a vast open world and emphasizing player freedom.
+        </p>
+        <p>
+          Players control Link, who awakens from a century-long slumber to defeat Calamity Ganon and
+          restore peace to the kingdom of Hyrule.
+        </p>
+      </section>
+    </main>
+
+    <script src="./js/nav.js"></script>
   </body>
 </html>
