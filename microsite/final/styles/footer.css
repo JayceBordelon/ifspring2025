@@ -1,0 +1,40 @@
+#footer {
+  background-color: var(--zelda-brown);
+  color: var(--main-text-color);
+  padding: 2rem;
+  border-top: 1px solid var(--zelda-gold);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-content p {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--main-text-color);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.footer-links li a {
+  color: var(--zelda-gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #eed089;
+}
