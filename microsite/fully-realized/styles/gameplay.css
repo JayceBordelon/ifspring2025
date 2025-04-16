@@ -1,0 +1,75 @@
+.gameplay-hero {
+  background-image: url('../images/gampleay.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.gameplay-hero .overlay {
+  background-color: rgba(34, 34, 34, 0.7);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 12px;
+  max-width: 90%;
+}
+
+.gameplay-hero h1 {
+  font-size: 2.5rem;
+  color: var(--zelda-gold);
+  margin-bottom: 1rem;
+}
+
+.gameplay-hero p {
+  font-size: 1.2rem;
+  color: var(--main-text-color);
+}
+
+.gameplay-main {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gameplay-feature {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.gameplay-feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.gameplay-feature img {
+  width: 45%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.gameplay-feature h2 {
+  color: var(--zelda-gold);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.gameplay-feature p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .gameplay-feature,
+  .gameplay-feature.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gameplay-feature img {
+    width: 100%;
+  }
+}
