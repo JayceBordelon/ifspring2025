@@ -1,5 +1,5 @@
 .reception-hero {
-  background-image: url('../images/reception.avif');
+  background-image: url('../images/reception.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -142,7 +142,6 @@
     padding: 1.5rem;
   }
 }
-
 
 @keyframes heroReveal {
   0% {

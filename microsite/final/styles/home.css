@@ -29,6 +29,7 @@
   background-image: url('../images/home-image.png');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   position: relative;
   display: flex;
   align-items: center;
